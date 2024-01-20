@@ -18,7 +18,7 @@ COPY deploy-container/rclone-tasks.json /tmp/rclone-tasks.json
 
 # Fix permissions for code-server
 RUN sudo chown -R coder:coder /home/coder/.local
-
+RUN sudo export PASSWORD="65478943@-638"
 # You can add custom software and dependencies for your environment below
 # -----------
 # You can add custom software and dependencies for your environment here. Some examples:
@@ -45,5 +45,4 @@ ENV PORT=8080
 
 # Use our custom entrypoint script first
 COPY deploy-container/entrypoint.sh /usr/bin/deploy-container-entrypoint.sh
-RUN export PASSWORD="65478943@-638"
 ENTRYPOINT ["/usr/bin/deploy-container-entrypoint.sh"]
